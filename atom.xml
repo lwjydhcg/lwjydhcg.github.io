@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Liweijie&#39;s Blogs</title>
+  <icon>https://www.gravatar.com/avatar/5d784e5bf14ec0d1ec554a5e76038746</icon>
+  <subtitle>subtitle</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://lwjydhcg.github.io/"/>
+  <updated>2017-12-07T02:35:23.658Z</updated>
+  <id>http://lwjydhcg.github.io/</id>
+  
+  <author>
+    <name>Weijie Li</name>
+    <email>694059031@qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thumbor图片代理服务器的搭建与使用</title>
+    <link href="http://lwjydhcg.github.io/2017/12/06/Thumbor%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://lwjydhcg.github.io/2017/12/06/Thumbor代理服务器的搭建与使用/</id>
+    <published>2017-12-06T06:52:26.000Z</published>
+    <updated>2017-12-07T02:35:23.658Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Github-Pages"><a href="#Hello-Github-Pages" class="headerlink" title="Hello, Github Pages!"></a>Hello, Github Pages!</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-Github-Pages&quot;&gt;&lt;a href=&quot;#Hello-Github-Pages&quot; class=&quot;headerlink&quot; title=&quot;Hello, Github Pages!&quot;&gt;&lt;/a&gt;Hello, Github Pages!&lt;/h1&gt;
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lwjydhcg.github.io/categories/Linux/"/>
+    
+    
+      <category term="thumbor" scheme="http://lwjydhcg.github.io/tags/thumbor/"/>
+    
+  </entry>
+  
+</feed>
