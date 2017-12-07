@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>SSH公钥与私钥登录的问题 | Liweijie&#39;s Blogs | subtitle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SSH">
+    <meta name="description" content="SSH公钥登录客户端生成一对公钥和私钥，公钥上传到服务器，就是公钥登录 SSH私钥登录服务器生成一对公钥和私钥，私钥给客户端保管，就是私钥登录 简单讲，就是两句话： 1. 谁有我公钥，我就可以艹谁！ 2. 我有谁私钥，我就可以艹谁！">
+<meta name="keywords" content="SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH公钥与私钥登录的问题">
+<meta property="og:url" content="http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/index.html">
+<meta property="og:site_name" content="Liweijie&#39;s Blogs">
+<meta property="og:description" content="SSH公钥登录客户端生成一对公钥和私钥，公钥上传到服务器，就是公钥登录 SSH私钥登录服务器生成一对公钥和私钥，私钥给客户端保管，就是私钥登录 简单讲，就是两句话： 1. 谁有我公钥，我就可以艹谁！ 2. 我有谁私钥，我就可以艹谁！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-07T09:19:15.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSH公钥与私钥登录的问题">
+<meta name="twitter:description" content="SSH公钥登录客户端生成一对公钥和私钥，公钥上传到服务器，就是公钥登录 SSH私钥登录服务器生成一对公钥和私钥，私钥给客户端保管，就是私钥登录 简单讲，就是两句话： 1. 谁有我公钥，我就可以艹谁！ 2. 我有谁私钥，我就可以艹谁！">
+    
+        <link rel="alternate" type="application/atom+xml" title="Liweijie&#39;s Blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Weijie Li</h5>
+          <a href="mailto:694059031@qq.com" title="694059031@qq.com" class="mail">694059031@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lwjydhcg" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/u/6395125814" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SSH公钥与私钥登录的问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SSH公钥与私钥登录的问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-07T09:14:27.000Z" itemprop="datePublished" class="page-time">
+  2017-12-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSH公钥登录"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#SSH&#x516C;&#x94A5;&#x767B;&#x5F55;" class="headerlink" title="SSH&#x516C;&#x94A5;&#x767B;&#x5F55;"></a>SSH&#x516C;&#x94A5;&#x767B;&#x5F55;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSH私钥登录"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#SSH&#x79C1;&#x94A5;&#x767B;&#x5F55;" class="headerlink" title="SSH&#x79C1;&#x94A5;&#x767B;&#x5F55;"></a>SSH&#x79C1;&#x94A5;&#x767B;&#x5F55;</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-SSH公钥与私钥登录的问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SSH公钥与私钥登录的问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-07 17:14:27" datetime="2017-12-07T09:14:27.000Z"  itemprop="datePublished">2017-12-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="SSH公钥登录"><a href="#SSH公钥登录" class="headerlink" title="SSH公钥登录"></a>SSH公钥登录</h2><p>客户端生成一对公钥和私钥，公钥上传到服务器，就是公钥登录</p>
+<h2 id="SSH私钥登录"><a href="#SSH私钥登录" class="headerlink" title="SSH私钥登录"></a>SSH私钥登录</h2><p>服务器生成一对公钥和私钥，私钥给客户端保管，就是私钥登录</p>
+<p>简单讲，就是两句话：</p>
+<pre><code>1. 谁有我公钥，我就可以艹谁！
+2. 我有谁私钥，我就可以艹谁！
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-07T09:19:15.459Z" itemprop="dateUpdated">2017-12-07 17:19:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/12/07/SSH公钥与私钥登录的问题/" target="_blank" rel="external">http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lwjydhcg.github.io">
+            <img src="/img/avatar.jpg" alt="Weijie Li">
+            Weijie Li
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&title=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&pic=http://lwjydhcg.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&title=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&source=description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&via=http://lwjydhcg.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/06/Thumbor图片服务的搭建使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Thumbor图片服务器的搭建与使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大佬~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Weijie Li &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&title=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&pic=http://lwjydhcg.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&title=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&source=description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSH公钥与私钥登录的问题》 — Liweijie's Blogs&url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/&via=http://lwjydhcg.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lwjydhcg.github.io/2017/12/07/SSH公钥与私钥登录的问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3awW4iMRAE0Pz/T7NSbtEmUNVtJxzenFACM35Gsk11f3zE1+PzSv77+OH6//3PP/X874cvPDw8vNHQnw/r+evZO5PxtJP4zf3x8PDwrvGS5X6zqeSDbifuhQUPDw/vT3nt0XY/Ke104+Hh4b0bbxYoJHdowwg8PDy8d+BtHpM/7F68eyBrwcPDw4t57QH3HV5frO/h4eHhLarqydUGsm3wsRktHh4e3g1eW9RPCvyryDUufRUbBh4eHt413iaYmEW07cQNI2M8PDy8o7zZT/39EJM4ONkA6u8NDw8P7xAvORzXtx61C8wO00VlDw8PD+8QL1/02wN33rCVbx75RoKHh4d3m5dvAPsI4yz7x3Hi4eHhXebNNoY8jMhbDfbH+m9iXDw8PLyjvLbclTDabWYWKxc9EXh4eHiHePsy/+xAnDx9M84XZTA8PDy8Ba9tq2qLVXmEkS/9xSTi4eHhXeDl8UEbHCSLfh4iz+6Jh4eHd4OXH3Nz8GNxtQ1bLzYSPDw8vMu8TWk/jy3aY/csCnlRAMPDw8Nb8NoluA15T8UNbQsCHh4e3u/w2oaqNkRom7H2R3k8PDy827xN6atdvjcFs2FnGR4eHt4h3r6QP4tZN+/Jvww8PDy8G7w8GsgPxO3GkDcltC0FeHh4eLd5+3C2PVLPylqz++Dh4eGd5bVH2zaizVu48mcln8LDw8O7zcsfn28DyR32rVcvDuV4eHh4R3mzctfmPbOSW7t5fEmp8fDw8I7yZr/o8xhiM9DZVoSHh4f3O7x8UZ41AbQBRxJ2FE0PeHh4eNd4+WaQk9rJ2hTM8PDw8N6ft5+aNghuNzM8PDy8d+Ali3W7xM8Kb8V04OHh4V3jbYpPyWPOBhP5FoKHh4d3gzf7qT87WN9oNdhEGHh4eHgl7x9y5gMnySUWbwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
