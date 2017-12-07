@@ -1,0 +1,14 @@
+[Unit]
+Description=thumbor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/thumbor \
+	    --port=8888 \
+	    --conf=/etc/thumbor/thumbor.conf
+Restart=on-failure
+Type=simple
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
