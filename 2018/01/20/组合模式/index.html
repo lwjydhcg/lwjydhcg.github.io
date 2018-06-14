@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>组合模式 | Liweijie&#39;s Blogs | subtitle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="组合模式,树形结构">
+    <meta name="description" content="组合模式是一种处理树形结构的设计模式。 结构定义                                                                                             设计图              组合模式的主要功能就是抽象树形结构上的所有节点的属性和方法。然后在客户使用中，对深层结构隐藏。在树形结构中，可以含有子节点的被称作容">
+<meta name="keywords" content="组合模式,树形结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合模式">
+<meta property="og:url" content="http://lwjydhcg.github.io/2018/01/20/组合模式/index.html">
+<meta property="og:site_name" content="Liweijie&#39;s Blogs">
+<meta property="og:description" content="组合模式是一种处理树形结构的设计模式。 结构定义                                                                                             设计图              组合模式的主要功能就是抽象树形结构上的所有节点的属性和方法。然后在客户使用中，对深层结构隐藏。在树形结构中，可以含有子节点的被称作容">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201209/07/1347030143_6150.jpg">
+<meta property="og:updated_time" content="2018-03-27T12:40:20.427Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="组合模式">
+<meta name="twitter:description" content="组合模式是一种处理树形结构的设计模式。 结构定义                                                                                             设计图              组合模式的主要功能就是抽象树形结构上的所有节点的属性和方法。然后在客户使用中，对深层结构隐藏。在树形结构中，可以含有子节点的被称作容">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201209/07/1347030143_6150.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Liweijie&#39;s Blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Weijie Li</h5>
+          <a href="mailto:694059031@qq.com" title="694059031@qq.com" class="mail">694059031@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lwjydhcg" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/u/6395125814" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">组合模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">组合模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-20T12:32:39.000Z" itemprop="datePublished" class="page-time">
+  2018-01-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-组合模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">组合模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-20 20:32:39" datetime="2018-01-20T12:32:39.000Z"  itemprop="datePublished">2018-01-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>组合模式是一种处理树形结构的设计模式。</p>
+<h1 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.my.csdn.net/uploads/201209/07/1347030143_6150.jpg" alt="设计图" title="">
+                </div>
+                <div class="image-caption">设计图</div>
+            </figure>
+<p>组合模式的主要功能就是抽象树形结构上的所有节点的属性和方法。然后在客户使用中，对深层结构隐藏。<br>在树形结构中，可以含有子节点的被称作容器，不可以的被称作叶子。<br>设计图中的AbstractFile就是抽象类，而Folder是容器，ImageFile、VideoFile、TextFile是叶子。<br>所有的节点都实现自抽象类中，在客户端看来，所有对象都是抽象类对象。</p>
+<p><em>透明组合模式：AbstractFile提供默认的容器节点的方法的实现（add, remove, getChild方法），叶子元素不需要实现，从而简化代码。但是这样会造成如果不希望叶子调用容器方法时报错，则需要直接在客户端定义叶子元素而不是抽象类</em></p>
+<p><em>安全组合模式：AbstarctFile不提供容器方法的抽象，只在容器类内部提供这些方法。这样造成的问题，是容器元素不能使用抽象类，否则无法使用其特有的方法。</em></p>
+<h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol>
+<li>清楚的定义分层次的复杂对象，让客户端忽略层次的差异，方便对整个层次结构进行控制。</li>
+<li>客户端一般情况下只需要调用抽象类对象即可完成逻辑操作，简化代码。</li>
+<li>增添新的容器和叶子组件都非常方便，完全符合开闭原则。</li>
+</ol>
+<h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol>
+<li>难以对容器中的构建类型进行限制，比如某个容器只能包含某个叶子，使用组合模式很难施加这些约束。</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol>
+<li>一个系统中能分离开叶子对象和容器对象，容器对象包含叶子对象。而需求也希望可以忽略它们之间的差距，客户端可以一致对待。</li>
+<li>系统面向对象语言开发。</li>
+</ol>
+
+        </div>
+
+        
+
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/22/装饰模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">装饰模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/20/桥接模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">桥接模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+    </main>
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

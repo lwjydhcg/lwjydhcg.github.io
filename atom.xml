@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Liweijie&#39;s Blogs</title>
+  <icon>https://www.gravatar.com/avatar/5d784e5bf14ec0d1ec554a5e76038746</icon>
+  <subtitle>subtitle</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://lwjydhcg.github.io/"/>
+  <updated>2018-03-27T12:40:20.422Z</updated>
+  <id>http://lwjydhcg.github.io/</id>
+  
+  <author>
+    <name>Weijie Li</name>
+    <email>694059031@qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中介者模式</title>
+    <link href="http://lwjydhcg.github.io/2018/02/06/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/02/06/中介者模式/</id>
+    <published>2018-02-06T09:23:36.000Z</published>
+    <updated>2018-03-27T12:40:20.422Z</updated>
+    
+    <content type="html"><![CDATA[<p>中介者模式是用来处理对象之间多对多相互关系导致业务复杂问题的模式，把对象之间的关系由网状结构转为了星型结构。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201301/08/1357651860_8819.jpg" alt="网状结构" title="">                </div>                <div class="image-caption">网状结构</div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201301/08/1357651865_7741.jpg" alt="星型结构" title="">                </div>                <div class="image-caption">星型结构</div>            </figure></p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201301/08/1357652403_1841.jpg" alt="设计图" title="">                </div>                <div class="image-caption">设计图</div>            </figure><p>Mediator：中介者抽象类<br>ConcreteMediator: 具体中介者类<br>Component: 组件抽象类<br>Button, TextBox, List, ComboBox: 具体组件类<br>每个组件类持有一个中介者对象，而这个中介者持有所有关联的组件对象。当对具体组件类进行操作的时候，组件方法内部调用中介者的方法，中介者来处理各个关联对象一系列的变动。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>简化了对象之间的交互，中介者的一对多代替了原来对象之间的多对多关联，更容易理解。</li><li>业务在中介者内高内聚，非常便于编写和理解。</li><li>便于扩展，由于中介者持有所有关联对象，编写新的业务更加方便，而且也方便继承，灵活性大大增强。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>具体中介者承担了大量的业务代码，导致中介者非常复杂，不好维护。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>适用于组件对象之间多对多的关系，一个对象状态的变化会联动到其他对象的行为。比较典型的比如CRM关系，一个客户的删除或者修改，影响到列表，公海，乃至部门等的变化。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;中介者模式是用来处理对象之间多对多相互关系导致业务复杂问题的模式，把对象之间的关系由网状结构转为了星型结构。&lt;br&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+      
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="中介者" scheme="http://lwjydhcg.github.io/tags/%E4%B8%AD%E4%BB%8B%E8%80%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解释器模式</title>
+    <link href="http://lwjydhcg.github.io/2018/02/05/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/02/05/解释器模式/</id>
+    <published>2018-02-05T07:44:18.000Z</published>
+    <updated>2018-03-27T12:40:20.429Z</updated>
+    
+    <content type="html"><![CDATA[<p>解释器模式为自定义语言的设计和实现提供了一种解决方案，即定义一组文法规则，并通过这个规则解释语言句。在正则表达式，XML文档解释领域应用比较多。</p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201207/04/1341331467_7271.jpg" alt="结构图" title="">                </div>                <div class="image-caption">结构图</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201207/04/1341331826_7970.jpg" alt="demo1结构图" title="">                </div>                <div class="image-caption">demo1结构图</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201207/04/1341332238_7715.jpg" alt="demo2结构图" title="">                </div>                <div class="image-caption">demo2结构图</div>            </figure><p>Context: 上下文对象，用来存储一些全局信息，通常会被当作参数传递到所有表达式的解释方法中。<br>AbstractExpression: 抽象表达式类，声明了解释操作。<br>TerminalExpression: 终结符表达式，是最小最基本的语言单位，不能再进行分解，不参与流程控制等工作。<br>NonterminalExpression: 非终结符表达式类，可以包含终结符表达式，也可以包含非终结符表达式，因此解释操作一般通过递归来完成。它主要用来处理连接各个表达式的关系。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>易于扩展语法，只需新的新的终结符表达式或者非终结符表达式即可。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>对于复杂的文法难以维护，如果要修改已有的语法逻辑，非常麻烦。</li><li>执行效率低，在解释器模式中使用了大量的循环递归，速度慢，调试麻烦。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>需要讲一个语句表示为一个抽象语法树</li><li>语法较为简单</li><li>执行效率不关键</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;解释器模式为自定义语言的设计和实现提供了一种解决方案，即定义一组文法规则，并通过这个规则解释语言句。在正则表达式，XML文档解释领域应用比较多。&lt;/p&gt;
+&lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="解释器" scheme="http://lwjydhcg.github.io/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebService</title>
+    <link href="http://lwjydhcg.github.io/2018/01/25/WebService/"/>
+    <id>http://lwjydhcg.github.io/2018/01/25/WebService/</id>
+    <published>2018-01-25T03:15:20.000Z</published>
+    <updated>2018-03-27T12:40:20.421Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebService是一种跨语言和跨平台的远程调用技术，就是一种部署在网络上的API, 算是一种规范。<br>它提供了一个标准和规范，来处理各个系统间的通信，以实现数据交互。<br>服务提供方根据WebService的标准来编写服务接口。<br>服务调用方使用WebService的接口进行调用，进行其业务方法。</p><p>RPC（远程过程调用）：调用远程计算机上的服务，就像调用本地服务一样。它只是一个概念，不是实际的技术或者协议规范，实现RPC的协议有很多，比如WebService的RPC风格，Java的RMI, Thrift, 甚至Rest API。RPC可以基于HTTP或者TCP协议。WebService是基于HTTP协议的RPC，虽然性能不如基于TCP协议的RPC，但是更安全，更被广泛使用，并且具有良好的跨平台性，</p><p>WebService的实现三大技术：<br><em>XML+XSD</em>: 定义了一套标准的数据类型，给出了一种语言来扩展这套数据类型。当使用某种语言（java, C#）构造web service时，语言本身的数据类型要被转换为XSD数据类型。</p><p><em>SOAP(Simlple Object Access Protocol)</em>:<br>WebServcie通过http发送请求和接受响应时，内容都采用了XML格式封装，并增加了一些特定的HTTP header。 这些header和xml内容就是SOAP协议规范。<br>SOAP比一般的http请求的区别在于，它是用来传输对象的。</p><p><em>WSDL(Web Service Description Language)</em>:<br>WebService描述语言，是一个xml文档，描述一个服务的输入，输出，网络地址，调用方式等信息。通常服务地址后面追加?wsdl即可查阅。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;WebService是一种跨语言和跨平台的远程调用技术，就是一种部署在网络上的API, 算是一种规范。&lt;br&gt;它提供了一个标准和规范，来处理各个系统间的通信，以实现数据交互。&lt;br&gt;服务提供方根据WebService的标准来编写服务接口。&lt;br&gt;服务调用方使用WebServ
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://lwjydhcg.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="WebService" scheme="http://lwjydhcg.github.io/tags/WebService/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>装饰模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/22/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/22/装饰模式/</id>
+    <published>2018-01-22T08:48:38.000Z</published>
+    <updated>2018-03-27T12:40:20.428Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201204/04/1333528353_8435.gif" alt="设计图" title="">                </div>                <div class="image-caption">设计图</div>            </figure><p>Component组件：构件类和装饰类的共同抽象接口。<br>Window、TesxtBox、ListBox: 具体构件类。<br>ComponentDecorator: 抽象装饰类，维护一个component组件对象（构件类和装饰类都有可能）。<br>ScrollBarDecorator、BlackBorderDecorator: 具体装饰类。<br>装饰者实现Component接口的方法，并保持了一个被装饰者对象。在接口的方法中，调用被装饰者对象的实现方法，并在调用前后加入额外的逻辑，从而实现装饰的作用。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>避免同一种变化通过继承的方式加在所有具体构件类上，减少了类的数量，系统也更加灵活。</li><li>可以多次装饰来达到复杂的处理，这是继承难以达到的效果。</li><li>增加新的具体构件类和具体装饰类与原系统集成都非常方便。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>理解困难，更需要有经验者来对业务进行抽象设计。用不好就是累赘。</li><li>更加灵活的同时也意味着更容易出错，并且这种模式不好排错，多层装饰的情况下，很难查出到底是哪一层干扰。</li><li>这种设计会导致小对象非常多，对系统资源和性能也有一定影响。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>当有多个扩展对同一批组件增强处理时。</li><li>当系统中存在大量独立的扩展，扩展之间的组合使用继承导致大量的子类，或者类已经被定义为final时。</li></ol><h3 id="装饰模式与桥接模式的区别："><a href="#装饰模式与桥接模式的区别：" class="headerlink" title="装饰模式与桥接模式的区别："></a>装饰模式与桥接模式的区别：</h3><ol><li>装饰模式的装饰者是增强功能的，而桥接模式是必要的不可缺的。</li><li>装饰模式是装饰者维护一个对象，桥接模式是主维度维护其他维度的对象，主次相反。</li><li>装饰模式装饰者和被装饰者实现同一接口，桥接模式的桥接者独自一个继承体系。 </li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lig
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="-装饰模式" scheme="http://lwjydhcg.github.io/tags/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>组合模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/20/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/20/组合模式/</id>
+    <published>2018-01-20T12:32:39.000Z</published>
+    <updated>2018-03-27T12:40:20.427Z</updated>
+    
+    <content type="html"><![CDATA[<p>组合模式是一种处理树形结构的设计模式。</p><h1 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201209/07/1347030143_6150.jpg" alt="设计图" title="">                </div>                <div class="image-caption">设计图</div>            </figure><p>组合模式的主要功能就是抽象树形结构上的所有节点的属性和方法。然后在客户使用中，对深层结构隐藏。<br>在树形结构中，可以含有子节点的被称作容器，不可以的被称作叶子。<br>设计图中的AbstractFile就是抽象类，而Folder是容器，ImageFile、VideoFile、TextFile是叶子。<br>所有的节点都实现自抽象类中，在客户端看来，所有对象都是抽象类对象。</p><p><em>透明组合模式：AbstractFile提供默认的容器节点的方法的实现（add, remove, getChild方法），叶子元素不需要实现，从而简化代码。但是这样会造成如果不希望叶子调用容器方法时报错，则需要直接在客户端定义叶子元素而不是抽象类</em></p><p><em>安全组合模式：AbstarctFile不提供容器方法的抽象，只在容器类内部提供这些方法。这样造成的问题，是容器元素不能使用抽象类，否则无法使用其特有的方法。</em></p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>清楚的定义分层次的复杂对象，让客户端忽略层次的差异，方便对整个层次结构进行控制。</li><li>客户端一般情况下只需要调用抽象类对象即可完成逻辑操作，简化代码。</li><li>增添新的容器和叶子组件都非常方便，完全符合开闭原则。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>难以对容器中的构建类型进行限制，比如某个容器只能包含某个叶子，使用组合模式很难施加这些约束。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>一个系统中能分离开叶子对象和容器对象，容器对象包含叶子对象。而需求也希望可以忽略它们之间的差距，客户端可以一致对待。</li><li>系统面向对象语言开发。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;组合模式是一种处理树形结构的设计模式。&lt;/p&gt;
+&lt;h1 id=&quot;结构定义&quot;&gt;&lt;a href=&quot;#结构定义&quot; class=&quot;headerlink&quot; title=&quot;结构定义&quot;&gt;&lt;/a&gt;结构定义&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="组合模式" scheme="http://lwjydhcg.github.io/tags/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="树形结构" scheme="http://lwjydhcg.github.io/tags/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>桥接模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/20/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/20/桥接模式/</id>
+    <published>2018-01-20T03:05:58.000Z</published>
+    <updated>2018-03-27T12:40:20.426Z</updated>
+    
+    <content type="html"><![CDATA[<p>桥接模式是一种用来解耦单个类多种独立变化的维度的设计模式。</p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201204/16/1334505919_5277.gif" alt="结构图" title="">                </div>                <div class="image-caption">结构图</div>            </figure><p>Abstraction是抽象类，维护了一个Implementor对象，声明了业务方法。<br>Implementor是某个维度的实现类接口，ConcreteImplementorA和ConcreteImplementorB是该接口的具体实现类。<br>RefinedAbstraction是Abstraction的扩充抽象类，通常情况下是具体类。</p><p><em>桥接模式与对象适配器模式的区别：桥接模式更加地抽象，对象适配器的适配者通常已经是具体类，而桥接模式的Implementor则是接口。并且对象适配器的对象维护在是Target类的子类&lt;具体类&gt;中, 桥接模式则在抽象层就已经开始维护。</em></p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>分离维度，减少类的个数，系统更加灵活。</li><li>由于分离了各个独立变化的维度，符合单一职责原则</li><li>增加新的维度实现只需要新增实现类即可，符合开闭原则</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>增加系统的设计难度和理解难度，而且必须要一开始就设计好。</li><li>在真正的业务中，正确的识别系统中独立变化的维度，是需要经验积累的。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>一个类存在多个独立变化的维度，且这些维度都有多种变化，需要独立进行扩展。</li><li>对于多重继承的系统，桥接模式在抽象层建立关联，避免多重继承造成的死板，扩展麻烦等问题。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;桥接模式是一种用来解耦单个类多种独立变化的维度的设计模式。&lt;/p&gt;
+&lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="桥接模式" scheme="http://lwjydhcg.github.io/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Celery之Routing Task</title>
+    <link href="http://lwjydhcg.github.io/2018/01/18/Celery%E4%B9%8BRouting-Task/"/>
+    <id>http://lwjydhcg.github.io/2018/01/18/Celery之Routing-Task/</id>
+    <published>2018-01-18T09:20:01.000Z</published>
+    <updated>2018-03-27T12:40:20.412Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h1><p>框架名中文译作芹菜，是一个python异步任务分布式处理框架。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.blog.csdn.net/20170415031435992?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHNqX2Jsb2c=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="流程图" title="">                </div>                <div class="image-caption">流程图</div>            </figure><br>简单来讲，就是将任务即时返回，不影响主线程的后续操作。异步的任务则通过broker分发给不同的队列。celery worker则后台等待队列的任务并执行，完成任务后删除队列中任务消息。<br>最大的困惑在于配置任务进入指定队列。</p><h1 id="配置queue和route"><a href="#配置queue和route" class="headerlink" title="配置queue和route"></a>配置queue和route</h1><p>由于刚深入接触其Routing Task路由任务，对配置诸多不解，研究了好久终于有所得。<br>一个任务带着Exchange, 传输给MQ后，mq对比routing key，路由到匹配的队列中。注意：redis是没有exchange的，只需要指定queue即可。</p><img src="/2018/01/18/Celery之Routing-Task/celery.png"><p>CELERY_QUEUES主要是配置队列信息，第一个参数是队列中的key名称，第二个参数Exchange是交换器极其类型（默认direct=直接），第三个参数routing_key是绑定在exchange上的。</p><p>CELERY_ROUTES主要是配置路由信息，第一个参数是app.task注册的任务名称，queue表示指定哪个队列（只在没有指定exchange时有意义），而exchange和routing_key则是用来对标上面QUEUES的exchange，使queue的exchange按照规则分发任务到队列。</p><h3 id="RabbitMQ中的Exchange列表"><a href="#RabbitMQ中的Exchange列表" class="headerlink" title="RabbitMQ中的Exchange列表"></a>RabbitMQ中的Exchange列表</h3><img src="/2018/01/18/Celery之Routing-Task/exchange_list.png"><h3 id="Ex-clean的绑定信息"><a href="#Ex-clean的绑定信息" class="headerlink" title="Ex_clean的绑定信息"></a>Ex_clean的绑定信息</h3><img src="/2018/01/18/Celery之Routing-Task/exchange_detail.png"><h3 id="Queues详情"><a href="#Queues详情" class="headerlink" title="Queues详情"></a>Queues详情</h3><img src="/2018/01/18/Celery之Routing-Task/queues.png"><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/xsj_blog/article/details/70181984" target="_blank" rel="noopener">Celery消息队列</a><br><a href="http://docs.celeryproject.org/en/latest/userguide/routing.html?#amqp-primer" target="_blank" rel="noopener">Celery Routing Task AMQP Primer</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Celery简介&quot;&gt;&lt;a href=&quot;#Celery简介&quot; class=&quot;headerlink&quot; title=&quot;Celery简介&quot;&gt;&lt;/a&gt;Celery简介&lt;/h1&gt;&lt;p&gt;框架名中文译作芹菜，是一个python异步任务分布式处理框架。&lt;br&gt;&lt;figure cla
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://lwjydhcg.github.io/categories/Python/"/>
+    
+    
+      <category term="Celery" scheme="http://lwjydhcg.github.io/tags/Celery/"/>
+    
+      <category term="AMQP" scheme="http://lwjydhcg.github.io/tags/AMQP/"/>
+    
+      <category term="RabbitMQ" scheme="http://lwjydhcg.github.io/tags/RabbitMQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>适配器模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/13/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/13/适配器模式/</id>
+    <published>2018-01-13T05:58:33.000Z</published>
+    <updated>2018-03-27T12:40:20.430Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><h2 id="对象适配器模式"><a href="#对象适配器模式" class="headerlink" title="对象适配器模式"></a>对象适配器模式</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201302/28/1362066399_9469.jpg" alt="原型图" title="">                </div>                <div class="image-caption">原型图</div>            </figure><p>Target是跟client客户端挂钩的，Apaptee是适配者，真正要使用的对象方法。但是Target跟Adaptee接口不适合直接对接（可能因为Adaptee无法改源码等原因），所以引入了Adapter角色，它在中间进行适配。它继承Target,保持Adaptee对象作为属性，负责转换。</p><h2 id="类适配器模式"><a href="#类适配器模式" class="headerlink" title="类适配器模式"></a>类适配器模式</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201303/01/1362099343_7447.jpg" alt="原型图" title="">                </div>                <div class="image-caption">原型图</div>            </figure><p>类适配器模式与对象适配器模式的区别是，他继承了Adaptee，实现Target接口，实现了同样的功能。这样代码会更简洁点，但是就有局限性，因为java，c#等语言不能继承多个的特性，如果Target不是接口，就无法使用此种模式。</p><h2 id="双向适配器模式"><a href="#双向适配器模式" class="headerlink" title="双向适配器模式"></a>双向适配器模式</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201303/01/1362100282_9857.jpg" alt="原型图" title="">                </div>                <div class="image-caption">原型图</div>            </figure><p>双向适配器模式的主要特性就是同时为双方都提供了适配转换。Target想要调用Adaptee的方法，需要转换，Adaptee想要调用Target的方法，也需要转换，所以双向适配器模式就出现了。此模式在实际开发中很少使用。</p><h2 id="缺省适配器模式"><a href="#缺省适配器模式" class="headerlink" title="缺省适配器模式"></a>缺省适配器模式</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.my.csdn.net/uploads/201303/01/1362101177_9180.jpg" alt="原型图" title="">                </div>                <div class="image-caption">原型图</div>            </figure><p>ServiceInterface定义了大量方法。<br>ServiceAbstract缺省适配器模式的核心类，使用空方法实现了ServiceInterfac。<br>ConcreteService具体业务类，是缺省适配器模式的子类，<br>缺省适配器模式是适配器模式的一种变体，当不需要实现一个接口所提供的所有方法时，提供一个抽象类用空方法实现接口，然后再继承该抽象类override掉需要的方法。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>将目标类与适配者类解耦，引入一个适配器角色来负责中间的转换，无需修改原有的结构。</li><li>灵活性和扩展性都非常好，可以很方便的更换适配器，符合开闭原则。</li><li>一个对象适配器可以适配多个适配者。</li><li>根据理式代换原则，甚至可以适配一个适配者的子类</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><h2 id="适配器模式的缺点如下"><a href="#适配器模式的缺点如下" class="headerlink" title="适配器模式的缺点如下"></a>适配器模式的缺点如下</h2><ol><li>对于java,c#等语言中，不支持多重类继承，最多只能适配一个适配者。</li><li>适配者类不能为final类。</li><li>目标类只能为接口。</li></ol><h2 id="对象适配器的缺点如下"><a href="#对象适配器的缺点如下" class="headerlink" title="对象适配器的缺点如下"></a>对象适配器的缺点如下</h2><ol><li>适配某些适配者的方法时比较麻烦，必要情况下，可以先做个适配者的子类，在子类中负责部分逻辑，然后适配器适配其子类。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>系统当前需求接口与适配者类不是很兼容，但这些类源码缺失。</li><li>想要创建一个可以重复使用的类，用于与一些没什么太大的关系的类一起工作。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;h2 id=&quot;对象适配器模式&quot;&gt;&lt;a href=&quot;#对象适配器模式&quot; class=&quot;headerlink&quot; title=&quot;对象适
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="适配器" scheme="http://lwjydhcg.github.io/tags/%E9%80%82%E9%85%8D%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建造者模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/13/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/13/建造者模式/</id>
+    <published>2018-01-13T02:56:52.000Z</published>
+    <updated>2018-03-27T12:40:20.425Z</updated>
+    
+    <content type="html"><![CDATA[<p>建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。</p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201204/04/1333541212_6038.gif" alt="设计原图" title="">                </div>                <div class="image-caption">设计原图</div>            </figure><p>Actor：具体产品<br>ActorBuilder: 抽象建造者<br>HeroBuilder和AngelBuilder: 具体建造者<br>ActorController: 指挥者，负责建造的先后顺序和逻辑。逻辑简单的情况下，该角色可以省略，指挥方法放在抽象建造者中。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>客户端无需知道产品内部组成的细节，将产品本身与产品创建解耦。</li><li>每个具体建造者相对独立，而与其他建造者无关，加入新的建造者方便，符合开闭原则</li><li>产品的细节创建与顺序创建解耦，便于理解和维护。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>创建的产品具有较多的共同点，组成部分相似。</li><li>产品内部变化复杂的话，可能会导致很多的具体建造者，会导致系统庞大</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>产品对象有复杂的内部结构，多个成员属性，属性之间相互依赖，有顺序之分。</li><li>隔离复杂对象的定义、创建、使用，相同的创建过程创建不同的产品。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。&lt;/p&gt;
+&lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="建造者" scheme="http://lwjydhcg.github.io/tags/%E5%BB%BA%E9%80%A0%E8%80%85/"/>
+    
+      <category term="建造者模式" scheme="http://lwjydhcg.github.io/tags/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原型模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/12/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/12/原型模式/</id>
+    <published>2018-01-12T09:40:14.000Z</published>
+    <updated>2018-03-27T12:40:20.424Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://my.csdn.net/uploads/201204/03/1333465614_7325.gif" alt="设计原图" title="">                </div>                <div class="image-caption">设计原图</div>            </figure><p>PrototypeManager原型管理器（懒汉式单例模式），负责维护一个map集合，存储常用的各种模版。从Manager中获取模版时，直接clone一次，返回一个新的对象回去，不影响原map中模版。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><p>1.减少相似对象的创建过程，提高创建效率。<br>2.如果提供了抽象原型类，则扩展性非常好，增添新的模型非常简单，符合开闭原则。<br>3.深克隆的方式可以保存对象的状态，以便在需要的时刻系统恢复，辅助实现撤销操作。</p><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><p>1.需要为每个类配置克隆方法。<br>2.深克隆时，对象之间存在多重嵌套引用时，每一层都必须支持深克隆，实现起来比较麻烦。</p><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>1.创建新对象成本较大，而且新对象之间相似，只需要对其稍作修改。<br>2.可以保存对象的当时状态。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lig
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="原型模式" scheme="http://lwjydhcg.github.io/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/12/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/12/单例模式/</id>
+    <published>2018-01-12T03:41:00.000Z</published>
+    <updated>2018-03-27T12:40:20.424Z</updated>
+    
+    <content type="html"><![CDATA[<p>单例模式是一种目标明确，结构简单的设计模式。</p><h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><p>1.饿汉模式，私有化构造器，在类变量中定义实例，静态方法返回该实例。<br>2.懒汉模式，在静态方法中，两层判断+同步锁控制返回同一实例。<br>3.IoDH模式，通过语言的特性，静态内部类中定义该实例，外部类静态方法返回实例。该种方式最完美，避免了饿汉模式的资源浪费和懒汉模式的多重判断导致的性能损耗。</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><p>1.单例模式对外提供了唯一实例的访问方法，直接减少系统资源的浪费损耗。<br>2.因为只存在一个实例，代码逻辑上简单许多。</p><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><p>1.没有抽象层，如果担任的功能过多，则不好扩展和抽象。<br>2.现在很多面向对象的语言都提供了垃圾自动回收的技术，如果单例对象长时间不使用，则有概率被系统销毁和回收，会导致对象状态的丢失。</p><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>1.系统只需要一个实例对象，或因业务需要，或因考虑资源消耗。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;单例模式是一种目标明确，结构简单的设计模式。&lt;/p&gt;
+&lt;h1 id=&quot;实现方式&quot;&gt;&lt;a href=&quot;#实现方式&quot; class=&quot;headerlink&quot; title=&quot;实现方式&quot;&gt;&lt;/a&gt;实现方式&lt;/h1&gt;&lt;p&gt;1.饿汉模式，私有化构造器，在类变量中定义实例，静态方法返回该实
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="单例模式" scheme="http://lwjydhcg.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>抽象工厂模式</title>
+    <link href="http://lwjydhcg.github.io/2018/01/03/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2018/01/03/抽象工厂模式/</id>
+    <published>2018-01-03T09:01:15.000Z</published>
+    <updated>2018-03-27T12:40:20.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>=======<br>抽象工厂模式是对工厂方法模式的再一次提升，主要为了解决工厂方式模式只能生产一个产品的问题。</p><h1 id="结构分析-1"><a href="#结构分析-1" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.blog.csdn.net/20130713164620203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTG92ZUxpb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设计原图" title="">                </div>                <div class="image-caption">设计原图</div>            </figure><ol><li>Button, ComboBox, TextField是多个产品类。</li><li>SkinFactory是抽象工厂类，SpringSkinFactory和SummerSkinFactory是负责生产产品族的具体工厂类</li></ol><h1 id="主要优点-1"><a href="#主要优点-1" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>完美处理了多个产品时，不同产品族的问题，增加新的产品族很方便，符合’开闭原则’。</li><li>隔离了具体产品族的生产，使用者不需要知道具体的产品是什么。</li></ol><h1 id="主要缺点-1"><a href="#主要缺点-1" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>一旦需要增加新的产品，改动较大，甚至需要修改抽象层代码</li></ol><h1 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>使用者无需关心产品对象的常见过程</li><li>系统中有多于一个的产品族，而每次只使用其中一个产品族。</li><li>产品等级结构稳定，设计完成后，不需要再向系统中加入新的产品等级结构。<blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><p>02a187d81600a1773fda71caf0f11c895dc4c3a4</p></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;/p&gt;
+&lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;h1 id=&quot;主要优点&quot;&gt;&lt;a href=&quot;#
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="http://lwjydhcg.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="抽象工厂模式" scheme="http://lwjydhcg.github.io/tags/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工厂方法模式</title>
+    <link href="http://lwjydhcg.github.io/2017/12/25/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2017/12/25/工厂方法模式/</id>
+    <published>2017-12-25T09:07:20.000Z</published>
+    <updated>2018-01-03T13:33:01.062Z</updated>
+    
+    <content type="html"><![CDATA[<p>工厂方法模式是对简单工厂模式的进一步抽象，更细点说，是对工厂角色的抽象。</p><h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.blog.csdn.net/20130712102729562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTG92ZUxpb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设计原图" title="">                </div>                <div class="image-caption">设计原图</div>            </figure><p>Logger(产品抽象类)<br>FileLogger和DatabaseLogger(具体产品类)<br>LoggerFactory(工厂抽象类)<br>FileLoggerFactory和DatabaseLoggerFactory(具体工厂类)<br>Client(客户端)</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>工厂方法负责创建用户需要的产品，对客户隐藏了创建的细节，甚至无需知道具体产品类。</li><li>新产品上线时，无需修改原有的类，只需添加一个新的具体工厂和具体产品即可。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>新产品上线，类的个数成对增加，增加的系统的复杂度。</li><li>对抽象层的定义，增加了系统的理解难度。</li></ol><h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol><li>客户端不关心具体产品，只需要知道对应的工厂，对应的工厂存储于配置文件或数据库中。</li><li>相比与简单工厂模式，工厂方法模式抽象了工厂层，打破了产品过多时，工厂类逻辑繁重的问题。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;工厂方法模式是对简单工厂模式的进一步抽象，更细点说，是对工厂角色的抽象。&lt;/p&gt;
+&lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;figure class=&quot;image-
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="http://lwjydhcg.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="工厂方法模式" scheme="http://lwjydhcg.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单工厂模式</title>
+    <link href="http://lwjydhcg.github.io/2017/12/25/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://lwjydhcg.github.io/2017/12/25/简单工厂模式/</id>
+    <published>2017-12-25T08:03:48.000Z</published>
+    <updated>2018-01-02T13:16:55.423Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://img.blog.csdn.net/20130711143612921?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTG92ZUxpb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="设计原图" title="">                </div>                <div class="image-caption">设计原图</div>            </figure><p>Factory(工厂角色)：该类负责创建一个静态方法，根据client传入的参数，返回不同的具体产品(ConcreteProduct)<br>Product(抽象产品角色)：该类是ConcreteProduct具体产品的抽象类<br>ConcreteProduct(具体产品角色)：真正的产品</p><h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol><li>工厂类将产品类管理了起来，内部封装了各个产品的创建逻辑，对客户端则隐藏了创建逻辑。</li><li>客户端仅仅需要知道具体产品对应的创建参数，返回的也是抽象工厂类，对于复杂的类型，一定程度上减少记忆量。</li></ol><h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol><li>集成了所有产品的创建逻辑，产品种类多或者创建逻辑复杂时，任务繁重，不利于维护和扩展。</li><li>增加了系统中类的个数，影响到理解难度。</li></ol><h1 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h1><ol><li>负责创建的对象较少</li><li>客户端对如何创建对象不关心，只想知道传入工厂类的参数就行。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;结构分析&quot;&gt;&lt;a href=&quot;#结构分析&quot; class=&quot;headerlink&quot; title=&quot;结构分析&quot;&gt;&lt;/a&gt;结构分析&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lig
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://lwjydhcg.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="http://lwjydhcg.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="简单工厂模式" scheme="http://lwjydhcg.github.io/tags/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH秘钥登录</title>
+    <link href="http://lwjydhcg.github.io/2017/12/07/SSH%E7%A7%98%E9%92%A5%E7%99%BB%E5%BD%95/"/>
+    <id>http://lwjydhcg.github.io/2017/12/07/SSH秘钥登录/</id>
+    <published>2017-12-07T09:14:27.000Z</published>
+    <updated>2018-03-27T12:40:20.420Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SSH秘钥登录"><a href="#SSH秘钥登录" class="headerlink" title="SSH秘钥登录"></a>SSH秘钥登录</h2><pre><code>1.ssh-keygen -t rsa命令，生成一对rsa加密的秘钥对。2.将生成的.ssh/目录下的公钥id_rsa.pub追加到服务端的.ssh/authorized_keys3.ssh 服务器IP，即可链接</code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>Xshell的秘钥登录，也是这个原理，指定私钥文件，而服务端的authorized_keys加入私钥对应的公钥。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;SSH秘钥登录&quot;&gt;&lt;a href=&quot;#SSH秘钥登录&quot; class=&quot;headerlink&quot; title=&quot;SSH秘钥登录&quot;&gt;&lt;/a&gt;SSH秘钥登录&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;1.ssh-keygen -t rsa命令，生成一对rsa加密的秘钥对。
+2.将生成
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lwjydhcg.github.io/categories/Linux/"/>
+    
+    
+      <category term="SSH" scheme="http://lwjydhcg.github.io/tags/SSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thumbor图片服务器的搭建与使用</title>
+    <link href="http://lwjydhcg.github.io/2017/12/06/Thumbor%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"/>
+    <id>http://lwjydhcg.github.io/2017/12/06/Thumbor图片服务的搭建使用/</id>
+    <published>2017-12-06T06:52:26.000Z</published>
+    <updated>2018-01-02T13:16:55.418Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://thumbor.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">官方文档</a><br><a href="https://blog.frognew.com/2017/08/image-process-service-with-thumbor.html#thumbor安装" target="_blank" rel="noopener">青蛙小白-使用thumbor搭建图片处理服务</a></p><h2 id="Thumbor简介"><a href="#Thumbor简介" class="headerlink" title="Thumbor简介"></a>Thumbor简介</h2><p>Thumbor是一个python编写的智能图片服务器，可用来代理互联网上的图片链接，并进行缓存，裁剪，甚至包含了头像识别等功能，当然也可以用来做本地图片的访问服务。目前我们主要用来代理爬虫抓过来的图片地址，爬虫过来的图片本地化太占存储，引用源网链接又可能被防盗链处理，使用thumbor则完美解决了这种问题。</p><h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>目前只支持python2.x版本，pip install thumbor即可安装。<br>命令thumbor-config &gt; /etc/thumbor/thumbor.conf生成一个默认的配置文件<br>命令thumbor –port=8888 –conf=/etc/thumbor/thumbor.conf即可启动。<br>配置文件简介：<br>    1.File Storage存储代理过来的图片缓存，默认保存一个月。<br>    2.Resulte Storage存储裁剪等操作处理过后的结果集，默认是永久保存<br>    3.File loader指定本地文件的根目录，做本地图片的服务。<br>    4.Security安全，配置SECURITY_KEY秘钥，和ALLOW_UNSAFE_URL=False使用，可防止其他人使用该服务。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1.通用：like <a href="http://图片服务域名/unsafe/(源网链接" target="_blank" rel="noopener">http://图片服务域名/unsafe/(源网链接</a>)<br>2.裁剪：like <a href="http://图片服务域名/unsafe/300x200/(源网链接" target="_blank" rel="noopener">http://图片服务域名/unsafe/300x200/(源网链接</a>)<br>3.加密链接：<br>    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img_url = urllib.quote(源网链接)</span><br><span class="line">signature = base64.urlsafe_b64encode(</span><br><span class="line">       hmac.new(SECURITY_KEY, img_url, digestmod=hashlib.sha1).digest()</span><br><span class="line">)</span><br><span class="line"><span class="keyword">return</span> domain + <span class="string">"/"</span> + signature + <span class="string">"/"</span> + img_url</span><br></pre></td></tr></table></figure></p><h3 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h3><a href="/2017/12/06/Thumbor图片服务的搭建使用/thumbor.conf" title="thumbor.conf">thumbor.conf</a>, <a href="/2017/12/06/Thumbor图片服务的搭建使用/thumbor.service" title="thumbor.service">thumbor.service</a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://thumbor.readthedocs.io/en/latest/index.html&quot; t
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lwjydhcg.github.io/categories/Linux/"/>
+    
+    
+      <category term="thumbor" scheme="http://lwjydhcg.github.io/tags/thumbor/"/>
+    
+  </entry>
+  
+</feed>

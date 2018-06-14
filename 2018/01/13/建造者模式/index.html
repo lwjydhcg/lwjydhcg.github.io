@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>建造者模式 | Liweijie&#39;s Blogs | subtitle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="建造者,建造者模式">
+    <meta name="description" content="建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。 结构分析                                                                                             设计原图              Actor：具体">
+<meta name="keywords" content="建造者,建造者模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建造者模式">
+<meta property="og:url" content="http://lwjydhcg.github.io/2018/01/13/建造者模式/index.html">
+<meta property="og:site_name" content="Liweijie&#39;s Blogs">
+<meta property="og:description" content="建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。 结构分析                                                                                             设计原图              Actor：具体">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://my.csdn.net/uploads/201204/04/1333541212_6038.gif">
+<meta property="og:updated_time" content="2018-03-27T12:40:20.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="建造者模式">
+<meta name="twitter:description" content="建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。 结构分析                                                                                             设计原图              Actor：具体">
+<meta name="twitter:image" content="http://my.csdn.net/uploads/201204/04/1333541212_6038.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="Liweijie&#39;s Blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Weijie Li</h5>
+          <a href="mailto:694059031@qq.com" title="694059031@qq.com" class="mail">694059031@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lwjydhcg" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/u/6395125814" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">建造者模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">建造者模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-13T02:56:52.000Z" itemprop="datePublished" class="page-time">
+  2018-01-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-建造者模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">建造者模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-13 10:56:52" datetime="2018-01-13T02:56:52.000Z"  itemprop="datePublished">2018-01-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>建造者模式是针对生成复杂对象而生的，与抽象工厂的区别是抽象工厂创建的是一个产品族，而建造者模式创建一个复杂产品，属性多且复杂，通常创建过程还有顺序要求。</p>
+<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://my.csdn.net/uploads/201204/04/1333541212_6038.gif" alt="设计原图" title="">
+                </div>
+                <div class="image-caption">设计原图</div>
+            </figure>
+<p>Actor：具体产品<br>ActorBuilder: 抽象建造者<br>HeroBuilder和AngelBuilder: 具体建造者<br>ActorController: 指挥者，负责建造的先后顺序和逻辑。逻辑简单的情况下，该角色可以省略，指挥方法放在抽象建造者中。</p>
+<h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol>
+<li>客户端无需知道产品内部组成的细节，将产品本身与产品创建解耦。</li>
+<li>每个具体建造者相对独立，而与其他建造者无关，加入新的建造者方便，符合开闭原则</li>
+<li>产品的细节创建与顺序创建解耦，便于理解和维护。</li>
+</ol>
+<h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><ol>
+<li>创建的产品具有较多的共同点，组成部分相似。</li>
+<li>产品内部变化复杂的话，可能会导致很多的具体建造者，会导致系统庞大</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol>
+<li>产品对象有复杂的内部结构，多个成员属性，属性之间相互依赖，有顺序之分。</li>
+<li>隔离复杂对象的定义、创建、使用，相同的创建过程创建不同的产品。</li>
+</ol>
+
+        </div>
+
+        
+
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/13/适配器模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">适配器模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/12/原型模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">原型模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+    </main>
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

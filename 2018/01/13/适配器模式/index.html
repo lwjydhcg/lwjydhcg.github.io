@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>适配器模式 | Liweijie&#39;s Blogs | subtitle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="适配器">
+    <meta name="description" content="结构分析对象适配器模式                                                                                             原型图              Target是跟client客户端挂钩的，Apaptee是适配者，真正要使用的对象方法。但是Target跟Adaptee接口不适合直接对接（可能因为Adapt">
+<meta name="keywords" content="适配器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="适配器模式">
+<meta property="og:url" content="http://lwjydhcg.github.io/2018/01/13/适配器模式/index.html">
+<meta property="og:site_name" content="Liweijie&#39;s Blogs">
+<meta property="og:description" content="结构分析对象适配器模式                                                                                             原型图              Target是跟client客户端挂钩的，Apaptee是适配者，真正要使用的对象方法。但是Target跟Adaptee接口不适合直接对接（可能因为Adapt">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201302/28/1362066399_9469.jpg">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201303/01/1362099343_7447.jpg">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201303/01/1362100282_9857.jpg">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201303/01/1362101177_9180.jpg">
+<meta property="og:updated_time" content="2018-03-27T12:40:20.430Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="适配器模式">
+<meta name="twitter:description" content="结构分析对象适配器模式                                                                                             原型图              Target是跟client客户端挂钩的，Apaptee是适配者，真正要使用的对象方法。但是Target跟Adaptee接口不适合直接对接（可能因为Adapt">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201302/28/1362066399_9469.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Liweijie&#39;s Blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Weijie Li</h5>
+          <a href="mailto:694059031@qq.com" title="694059031@qq.com" class="mail">694059031@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lwjydhcg" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/u/6395125814" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">适配器模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">适配器模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-13T05:58:33.000Z" itemprop="datePublished" class="page-time">
+  2018-01-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-适配器模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">适配器模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-13 13:58:33" datetime="2018-01-13T05:58:33.000Z"  itemprop="datePublished">2018-01-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><h2 id="对象适配器模式"><a href="#对象适配器模式" class="headerlink" title="对象适配器模式"></a>对象适配器模式</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.my.csdn.net/uploads/201302/28/1362066399_9469.jpg" alt="原型图" title="">
+                </div>
+                <div class="image-caption">原型图</div>
+            </figure>
+<p>Target是跟client客户端挂钩的，Apaptee是适配者，真正要使用的对象方法。但是Target跟Adaptee接口不适合直接对接（可能因为Adaptee无法改源码等原因），所以引入了Adapter角色，它在中间进行适配。它继承Target,保持Adaptee对象作为属性，负责转换。</p>
+<h2 id="类适配器模式"><a href="#类适配器模式" class="headerlink" title="类适配器模式"></a>类适配器模式</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.my.csdn.net/uploads/201303/01/1362099343_7447.jpg" alt="原型图" title="">
+                </div>
+                <div class="image-caption">原型图</div>
+            </figure>
+<p>类适配器模式与对象适配器模式的区别是，他继承了Adaptee，实现Target接口，实现了同样的功能。这样代码会更简洁点，但是就有局限性，因为java，c#等语言不能继承多个的特性，如果Target不是接口，就无法使用此种模式。</p>
+<h2 id="双向适配器模式"><a href="#双向适配器模式" class="headerlink" title="双向适配器模式"></a>双向适配器模式</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.my.csdn.net/uploads/201303/01/1362100282_9857.jpg" alt="原型图" title="">
+                </div>
+                <div class="image-caption">原型图</div>
+            </figure>
+<p>双向适配器模式的主要特性就是同时为双方都提供了适配转换。Target想要调用Adaptee的方法，需要转换，Adaptee想要调用Target的方法，也需要转换，所以双向适配器模式就出现了。此模式在实际开发中很少使用。</p>
+<h2 id="缺省适配器模式"><a href="#缺省适配器模式" class="headerlink" title="缺省适配器模式"></a>缺省适配器模式</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.my.csdn.net/uploads/201303/01/1362101177_9180.jpg" alt="原型图" title="">
+                </div>
+                <div class="image-caption">原型图</div>
+            </figure>
+<p>ServiceInterface定义了大量方法。<br>ServiceAbstract缺省适配器模式的核心类，使用空方法实现了ServiceInterfac。<br>ConcreteService具体业务类，是缺省适配器模式的子类，<br>缺省适配器模式是适配器模式的一种变体，当不需要实现一个接口所提供的所有方法时，提供一个抽象类用空方法实现接口，然后再继承该抽象类override掉需要的方法。</p>
+<h1 id="主要优点"><a href="#主要优点" class="headerlink" title="主要优点"></a>主要优点</h1><ol>
+<li>将目标类与适配者类解耦，引入一个适配器角色来负责中间的转换，无需修改原有的结构。</li>
+<li>灵活性和扩展性都非常好，可以很方便的更换适配器，符合开闭原则。</li>
+<li>一个对象适配器可以适配多个适配者。</li>
+<li>根据理式代换原则，甚至可以适配一个适配者的子类</li>
+</ol>
+<h1 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h1><h2 id="适配器模式的缺点如下"><a href="#适配器模式的缺点如下" class="headerlink" title="适配器模式的缺点如下"></a>适配器模式的缺点如下</h2><ol>
+<li>对于java,c#等语言中，不支持多重类继承，最多只能适配一个适配者。</li>
+<li>适配者类不能为final类。</li>
+<li>目标类只能为接口。</li>
+</ol>
+<h2 id="对象适配器的缺点如下"><a href="#对象适配器的缺点如下" class="headerlink" title="对象适配器的缺点如下"></a>对象适配器的缺点如下</h2><ol>
+<li>适配某些适配者的方法时比较麻烦，必要情况下，可以先做个适配者的子类，在子类中负责部分逻辑，然后适配器适配其子类。</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ol>
+<li>系统当前需求接口与适配者类不是很兼容，但这些类源码缺失。</li>
+<li>想要创建一个可以重复使用的类，用于与一些没什么太大的关系的类一起工作。</li>
+</ol>
+
+        </div>
+
+        
+
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/18/Celery之Routing-Task/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Celery之Routing Task</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/13/建造者模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">建造者模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+    </main>
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.0"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.0" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
